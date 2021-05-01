@@ -3,31 +3,34 @@
 		<div class="card__content">
 			<span
 				class="card__content-header"
-				v-html="cardHeader"
+				v-html="getCardHeader(card.title)"
 			/>
-			<p class="card__content-date">
-				May 1, 2021
-			</p>
+
 			<p class="card__content-byline">
-				&nbsp;by Heather
+				by {{ card.author }} &centerdot;
 			</p>
+
+			<p class="card__content-date">
+				{{ card.date }}
+			</p>
+
 			<p class="card__content-description">
-				Shores of the cosmic ocean dream of the mind's eye decipherment globular
-				star cluster a billion trillion concept of the number one? Vanquish the
-				impossible something incredible is waiting to be known
+				{{ card.description }}
 			</p>
+
 			<a
 				class="card__content-link"
-				href="#"
+				:href="card.link"
+				target="_blank"
 			>
-				Read more <p class="screen-reader-text">about {{ title }}</p>
+				Read more <p class="screen-reader-text">about {{ card.title }}</p>
 			</a>
 		</div>
 
 		<img
 			class="card__thumbnail"
-			:src="imageSrc"
-			:alt="imageAlt"
+			:src="card.imageSrc"
+			:alt="card.imageAlt"
 		>
 	</article>
 </template>
@@ -36,34 +39,30 @@
 export default {
 
 	props: {
+		/* If an image is included in the card prop object, an alt-text must also be provided */
+		card: {
+			type: Object,
+			required: true,
+			description: 'Supplies card data',
+		},
+
 		headerLevel: {
 			type: String,
 			required: true,
 			validator: (value) => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].indexOf(value) !== -1,
 			description: 'Assigns desired heading level to Card header',
 		},
-
-		imageAlt: {
-			type: String,
-			required: false,
-			default: '',
-			description: 'Supplies alt-text to optional card image',
-		},
-
-		imageSrc: {
-			type: String,
-			required: false,
-			default: '',
-			description: 'Supplies link to optional card image',
-		},
-	},
-	data() {
-		return {
-			title: 'Title of an awesomeness',
-		};
 	},
 
-	methods: {},
+	methods: {
+		getCardHeader(title) {
+			/* This method enables dynamic assignment of card title's header level
+			via the headerLevel prop. This ensures cards appear correctly in the page
+			hierarchy, providing essential information about page organization */
+
+			return `<${this.headerLevel}>${title}</${this.headerLevel}>`;
+		},
+	},
 };
 </script>
 

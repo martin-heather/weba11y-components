@@ -3,8 +3,8 @@
 		<AccessibleCard
 			v-for="(card, index) in cards"
 			:key="index"
+			:card="card"
 			header-level="h2"
-			:cards="cards"
 		/>
 	</div>
 </template>
@@ -28,6 +28,7 @@ export default {
 					description: "Shores of the cosmic ocean dream of the mind's eye decipherment globular star cluster a billion trillion concept of the number one? Vanquish the impossible something incredible is waiting to be known",
 					imageAlt: 'Randomly generated technology image from placeimg.com',
 					imageSrc: 'https://placeimg.com/480/480/tech',
+					link: 'https://duckduckgo.com/',
 				},
 				{
 					title: 'An article that\'s just okay',
@@ -36,6 +37,7 @@ export default {
 					description: "Shores of the cosmic ocean dream of the mind's eye decipherment globular star cluster a billion trillion concept of the number one? Vanquish the impossible something incredible is waiting to be known",
 					imageAlt: 'Randomly generated technology image from placeimg.com',
 					imageSrc: 'https://placeimg.com/480/480/animals',
+					link: 'https://duckduckgo.com/',
 				},
 				{
 					title: 'A better article',
@@ -44,6 +46,7 @@ export default {
 					description: "Shores of the cosmic ocean dream of the mind's eye decipherment globular star cluster a billion trillion concept of the number one? Vanquish the impossible something incredible is waiting to be known",
 					imageAlt: 'Randomly generated technology image from placeimg.com',
 					imageSrc: 'https://placeimg.com/480/480/arch',
+					link: 'https://duckduckgo.com/',
 				},
 				{
 					title: 'First article',
@@ -52,15 +55,10 @@ export default {
 					description: "Shores of the cosmic ocean dream of the mind's eye decipherment globular star cluster a billion trillion concept of the number one? Vanquish the impossible something incredible is waiting to be known",
 					imageAlt: 'Randomly generated technology image from placeimg.com',
 					imageSrc: 'https://placeimg.com/480/480/nature',
+					link: 'https://duckduckgo.com/',
 				},
 			],
 		};
-	},
-
-	computed: {
-		cardHeader(index) {
-			return `<${this.headerLevel}>${this.cards[index].title}</${this.headerLevel}>`;
-		},
 	},
 };
 </script>
@@ -91,7 +89,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
 margin: 0;
 }
 

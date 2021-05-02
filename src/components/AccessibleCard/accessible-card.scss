@@ -6,7 +6,7 @@
 	flex-direction: row-reverse;
 	// row-reverse ensures the header (the 1st element in .card__content) is the first thing the screen reader will read for each card
 	margin: 0 auto 32px;
-	height: 200px;
+	height: 240px;
 	max-width: 120ch;
 	justify-content: space-between;
 
@@ -42,13 +42,33 @@
 			-webkit-line-clamp: 4;
 			display: -webkit-box;
 			font-size: 1.8rem;
-			margin: 1.2rem 0 .6rem;
+			margin: 1.2rem 0;
 			overflow: hidden;
 		}
 
 		&-link {
+			background-color: #d0fcf5;
+			border-radius: 6px;
+			color: #0c2f40;
 			float: right;
 			font-size: 1.4rem;
+			// outline must been replaced by alternate :focus styling
+			outline: none;
+			padding: .6rem;
+			text-decoration: none;
+
+			&:active,
+			&:visited {
+				background-color: #d0fcf5;
+				color: #0c2f40;
+			}
+
+			&:hover,
+			&:focus {
+				// this styling has replaced the default outline styling
+				background-color: #144f6b;
+				color: #10f0cf;
+			}
 		}
 	}
 

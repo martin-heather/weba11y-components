@@ -21,7 +21,7 @@
 			<a
 				class="card__content-link"
 				:href="card.link"
-				target="_blank"
+				target="_self"
 			>
 				Read more <p class="screen-reader-text">about {{ card.title }}</p>
 			</a>

@@ -65,23 +65,23 @@ export default {
 
 <style>
 .screen-reader-text {
-height: 1px;
-left: -10000px;
-overflow: hidden;
-position: absolute;
-top: auto;
-width: 1px;
+	height: 1px;
+	left: -10000px;
+	overflow: hidden;
+	position: absolute;
+	top: auto;
+	width: 1px;
 }
 
 html {
-font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-background-color: #efedea;
-color: #0c2f40;
-font-family: "Avenir", Helvetica, Arial, sans-serif;
-margin-top: 60px;
+	background-color: #efedea;
+	color: #0c2f40;
+	font-family: "Avenir", Helvetica, Arial, sans-serif;
+	margin: 60px 20px;
 }
 
 h1,
@@ -91,30 +91,35 @@ h4,
 h5,
 h6,
 p {
-margin: 0;
+	margin: 0;
 }
 
 h1 {
-font-size: 3.2rem;
+	font-size: 3.2rem;
 }
 
 h2 {
-font-size: 2.4rem;
+	font-size: 2.4rem;
 }
 
 h3 {
-font-size: 2rem;
+	font-size: 2rem;
 }
 
 h4 {
-font-size: 1.6rem;
+	font-size: 1.6rem;
 }
 
 h5 {
-font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 
 h6 {
-font-size: 1rem;
+	font-size: 1rem;
+}
+
+p {
+	font-size: 1.6rem;
+	line-height: 2.25rem;
 }
 </style>

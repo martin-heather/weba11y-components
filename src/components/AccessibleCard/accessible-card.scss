@@ -11,6 +11,9 @@
 	justify-content: space-between;
 
 	.card__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		max-width: 1fr;
 		padding: 24px;
 

@@ -29,15 +29,17 @@
 				{{ card.description }}
 			</p>
 
-			<a
-				class="card__content-link"
-				:href="card.link"
-				target="_self"
-			>
-				<!-- .screen-reader-text provides context to links
+			<div>
+				<a
+					class="card__content-link"
+					:href="card.link"
+					target="_self"
+				>
+					<!-- .screen-reader-text provides context to links
 				when uninformative visual text links can't be avoided -->
-				Read more <p class="screen-reader-text">about {{ card.title }}</p>
-			</a>
+					Read more <p class="screen-reader-text">about {{ card.title }}</p>
+				</a>
+			</div>
 		</div>
 
 		<img

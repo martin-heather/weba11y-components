@@ -1,9 +1,20 @@
 <template>
+	<!-- Semantic tag: article -->
 	<article class="card">
 		<div class="card__content">
+			<!-- Dynamic header option 1: from scratch -->
 			<span
+				:is="`${headerLevel}`"
 				class="card__content-header"
-				v-html="getCardHeader(card.title)"
+			>
+				{{ card.title }}
+			</span>
+
+			<!-- Dynamic header option 2: from component -->
+			<DynamicHeader
+				class="card__content-header"
+				:header-level="headerLevel"
+				:title="card.title"
 			/>
 
 			<p class="card__content-byline">
@@ -36,7 +47,14 @@
 </template>
 
 <script>
+import DynamicHeader from '../DynamicHeader/DynamicHeader.vue';
+
 export default {
+	name: 'AccessibleCard',
+
+	components: {
+		DynamicHeader,
+	},
 
 	props: {
 		/* If an image is included in the card prop object, an alt-text must also be provided */
@@ -46,21 +64,14 @@ export default {
 			description: 'Supplies card data',
 		},
 
+		/* This prop enables dynamic assignment of card title's header level,
+		ensuring that cards appear correctly in the page hierarchy and
+		providing essential information about page organization */
 		headerLevel: {
 			type: String,
 			required: true,
 			validator: (value) => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].indexOf(value) !== -1,
 			description: 'Assigns desired heading level to Card header',
-		},
-	},
-
-	methods: {
-		getCardHeader(title) {
-			/* This method enables dynamic assignment of card title's header level
-			via the headerLevel prop. This ensures cards appear correctly in the page
-			hierarchy, providing essential information about page organization */
-
-			return `<${this.headerLevel}>${title}</${this.headerLevel}>`;
 		},
 	},
 };

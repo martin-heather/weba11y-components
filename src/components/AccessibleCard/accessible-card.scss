@@ -14,6 +14,7 @@
 		max-width: 1fr;
 		padding: 24px;
 
+		// Title retains it's design regardless of semantic header level
 		h1,
 		h2,
 		h3,
@@ -39,7 +40,7 @@
 
 		&-description {
 			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 4;
+			-webkit-line-clamp: 2;
 			display: -webkit-box;
 			font-size: 1.8rem;
 			margin: 1.2rem 0;

@@ -17,7 +17,7 @@
 		max-width: 1fr;
 		padding: 24px;
 
-		// Title retains it's design regardless of semantic header level
+		// Title retains its design regardless of semantic header level
 		h1,
 		h2,
 		h3,
@@ -56,7 +56,7 @@
 			color: #0c2f40;
 			float: right;
 			font-size: 1.4rem;
-			// outline must been replaced by alternate :focus styling
+			// ! ---outline must been replaced by alternate :focus styling
 			outline: none;
 			padding: .6rem;
 			text-decoration: none;
@@ -69,7 +69,7 @@
 
 			&:hover,
 			&:focus {
-				// this styling has replaced the default outline styling
+				// ---this styling has replaced the default outline styling
 				background-color: #144f6b;
 				color: #10f0cf;
 			}

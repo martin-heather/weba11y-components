@@ -1,5 +1,14 @@
 <template>
 	<div class="app">
+		<AccessibleButton
+			text="Submit"
+		/>
+
+		<AccessibleButton
+			:inactive="true"
+			text="Cancel"
+		/>
+
 		<AccessibleCard
 			v-for="(card, index) in cards"
 			:key="index"
@@ -10,11 +19,13 @@
 </template>
 
 <script>
+import AccessibleButton from './components/AccessibleButton/AccessibleButton.vue';
 import AccessibleCard from './components/AccessibleCard/AccessibleCard.vue';
 
 export default {
 	name: 'App',
 	components: {
+		AccessibleButton,
 		AccessibleCard,
 	},
 

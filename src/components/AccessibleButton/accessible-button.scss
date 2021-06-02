@@ -1,0 +1,42 @@
+.button {
+	// remove default HTML button tag styles so you can enjoy your own:
+	background: none;
+	border: none;
+	font: inherit;
+	// ! ---outline must been replaced by alternate :focus styling
+	outline: none;
+	padding: 0;
+
+	// now do whatever you like:
+	background-color: white;
+	border: 1px solid #d01433;
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #d01433;
+	cursor: pointer;
+	font-size: 14px;
+	margin: 20px 10px;
+	padding: 6px 12px;
+	width: auto;
+
+	&:focus,
+	&:hover {
+		// ---this styling has replaced the default outline styling
+		background-color: #d01433;
+		color: white;
+	}
+
+	&--inactive {
+		background-color: darkslategrey;
+		border: 1px solid darkslategrey;
+		color: white;
+		cursor: not-allowed;
+
+		&:focus,
+		&:hover {
+			// ---this styling has replaced the default outline styling
+			background-color: darkslategrey;
+			color: white;
+		}
+	}
+}

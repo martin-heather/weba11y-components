@@ -1,32 +1,44 @@
 <template>
 	<div class="app">
-		<AccessibleButton
-			text="Submit"
-		/>
-
-		<AccessibleButton
-			:inactive="true"
-			text="Cancel"
-		/>
-
 		<AccessibleCard
 			v-for="(card, index) in cards"
 			:key="index"
 			:card="card"
 			header-level="h2"
 		/>
+
+		<form :id="formId">
+			<AccessibleRadioGroup
+				:radios="radios"
+			/>
+
+			<AccessibleButton
+				text="Submit"
+			/>
+
+			<AccessibleButton
+				:inactive="true"
+				text="Cancel"
+			/>
+		</form>
 	</div>
 </template>
 
 <script>
+// import components
 import AccessibleButton from './components/AccessibleButton/AccessibleButton.vue';
 import AccessibleCard from './components/AccessibleCard/AccessibleCard.vue';
+import AccessibleRadioGroup from './components/AccessibleRadioGroup/AccessibleRadioGroup.vue';
+
+// import data
+import sampleRadioGroupData from './components/AccessibleRadioGroup/sampleRadioGroupData';
 
 export default {
 	name: 'App',
 	components: {
 		AccessibleButton,
 		AccessibleCard,
+		AccessibleRadioGroup,
 	},
 
 	data() {
@@ -69,6 +81,8 @@ export default {
 					link: 'https://duckduckgo.com/',
 				},
 			],
+			formId: 'preferences',
+			radios: sampleRadioGroupData,
 		};
 	},
 };

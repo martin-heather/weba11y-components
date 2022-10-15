@@ -8,13 +8,23 @@
 		>
 			<input
 				:id="radio.choice"
+				:class="['radio-input', {
+					'radio-input--inactive': radio.inactive,
+				}]"
 				:checked="radio.checked"
 				:disabled="radio.inactive"
 				:form="form"
 				:name="radio.groupName"
 				type="radio"
 			>
-			<label :for="radio.choice">{{ radio.choice }}</label>
+			<label
+				:for="radio.choice"
+				:class="['radio-label', {
+					'radio-label--inactive': radio.inactive,
+				}]"
+			>
+				{{ radio.choice }}
+			</label>
 		</div>
 	</fieldset>
 </template>

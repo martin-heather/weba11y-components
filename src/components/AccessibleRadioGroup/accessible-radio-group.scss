@@ -1,0 +1,93 @@
+fieldset {
+	border-radius: 12px;
+	margin: 0 auto 32px;
+	max-width: 120ch;
+}
+
+.radio-wrapper {
+	margin: 0.5rem 0;
+}
+
+.radio-input {
+	opacity: 0;
+
+	+ .radio-label {
+		cursor: pointer;
+		line-height: 22px;
+		position: relative;
+
+		&::before {
+			border: 1px solid darkred;
+			border-radius: 50%;
+			content: '';
+			height: 20px;
+			left: -24px;
+			position: absolute;
+			/* Fixed alignment in some browsers. */
+			top: 0;
+			width: 20px;
+		}
+
+		&::after {
+			border-radius: 50%;
+			content: '';
+			height: 12px;
+			left: -19px;
+			position: absolute;
+			top: 5px;
+			width: 12px;
+		}
+	}
+
+	&:checked {
+		+ label::after {
+			background: darkred;
+
+			/* The background is removed in Windows high-contrast mode, so we
+				need to set it explicitly here. `WindowText` is a system color
+				that should work with whatever high contrast mode the user
+				has set. */
+			@media screen and (-ms-high-contrast: active) {
+				& {
+				background: WindowText;
+				}
+			}
+		}
+	}
+
+	&:focus,
+	&:hover {
+		+ label::before {
+		box-shadow: 0 0px 0px 1px darkred, 0 0px 12px darkred;
+		/* Since box shadows don't show up in high contrast mode,
+			we're adding a transparent outline (which does show up).  */
+		outline: 2px dotted transparent;
+		}
+	}
+}
+
+.radio-input--inactive {
+	+ .radio-label--inactive {
+		color: grey;
+		cursor: not-allowed;
+
+		&::before {
+			border: 1px solid grey;
+		}
+	}
+
+	&:checked {
+		+ label::after {
+		background: grey;
+		}
+	}
+
+	&:focus,
+	&:hover {
+		+ label::before {
+		box-shadow: 0 0px 0px 1px grey, 0 0px 12px grey;
+		}
+	}
+}
+
+// ** Credit for high-contrast style information and comments: https://www.a11ywithlindsey.com/blog/create-custom-keyboard-accessible-radio-buttons

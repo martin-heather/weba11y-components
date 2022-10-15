@@ -143,8 +143,14 @@ h6 {
 	font-size: 1rem;
 }
 
-p {
+p,
+label {
 	font-size: 1.6rem;
 	line-height: 2.25rem;
+}
+
+legend {
+	font-size: 1.8rem;
+	font-weight: 600;
 }
 </style>

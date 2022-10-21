@@ -2,12 +2,10 @@ export default [
 	{
 		groupName: 'dogs',
 		choice: 'Bowski',
-		inactive: true,
 	},
 	{
 		groupName: 'dogs',
 		choice: 'Woolwich',
-		inactive: true,
 	},
 	{
 		groupName: 'dogs',

@@ -8,8 +8,32 @@
 		/>
 
 		<form :id="formId">
+			<p>Show me radio buttons styled with<br>
+				<button
+					id="radios-appearance-property"
+					@click.prevent="radiosStyle = 'appearance-property'"
+				>
+					the appearance CSS property
+				</button><br>
+
+				<button
+					id="radios-before-pseudo-element"
+					@click.prevent="radiosStyle = 'before-pseudo-element'"
+				>
+					:before pseudo elements
+				</button><br>
+
+				<button
+					id="radios-default-HTML"
+					@click.prevent="radiosStyle = 'default-HTML'"
+				>
+					default HTML styling
+				</button><br>
+			</p><br>
+
 			<AccessibleRadioGroup
 				:radios="radios"
+				:css-style-option="radiosStyle"
 			/>
 
 			<AccessibleButton
@@ -83,6 +107,7 @@ export default {
 			],
 			formId: 'preferences',
 			radios: sampleRadioGroupData,
+			radiosStyle: 'appearance-property'
 		};
 	},
 };

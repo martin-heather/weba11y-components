@@ -2,90 +2,147 @@ fieldset {
 	border-radius: 12px;
 	margin: 0 auto 32px;
 	max-width: 120ch;
-}
 
-.radio-wrapper {
-	margin: 0.5rem 0;
-}
+	&.appearance-property {
+		.radio-label {
+			margin-right: 15px;
+			line-height: 32px;
+		}
 
-.radio-input {
-	opacity: 0;
+		.radio-input,
+		.radio-label {
+			cursor: pointer;
+			line-height: 22px;
+		}
 
-	+ .radio-label {
-		cursor: pointer;
-		line-height: 22px;
-		position: relative;
-
-		&::before {
-			border: 1px solid darkred;
+		.radio-input {
+			// the appearance property allows for straightfoward overwriting of default semantic HTML styles and now has solid cross-browser support
+			appearance: none;
+			border: 1px solid darkgreen;
 			border-radius: 50%;
-			content: '';
 			height: 20px;
-			left: -24px;
-			position: absolute;
-			/* Fixed alignment in some browsers. */
-			top: 0;
+			margin-right: 5px;
+			position: relative;
+			top: 4px;
 			width: 20px;
-		}
 
-		&::after {
-			border-radius: 50%;
-			content: '';
-			height: 12px;
-			left: -19px;
-			position: absolute;
-			top: 5px;
-			width: 12px;
-		}
-	}
+			&:hover,
+			&:focus {
+				background-color: #efedea;
+				border: 4px solid #efedea;
+				box-shadow: 0 0px 0px 1px darkgreen, 0 0px 12px darkgreen;
+			}
 
-	&:checked {
-		+ label::after {
-			background: darkred;
+			&:checked {
+				background-color: darkgreen;
+				border: 4px solid #efedea;
+				box-shadow: 0 0px 0px 1px darkgreen, 0 0px 12px darkgreen;
 
-			/* The background is removed in Windows high-contrast mode, so we
-				need to set it explicitly here. `WindowText` is a system color
-				that should work with whatever high contrast mode the user
-				has set. */
-			@media screen and (-ms-high-contrast: active) {
-				& {
-				background: WindowText;
+				@media screen and (-ms-high-contrast: active) {
+					& {
+						background: WindowText;
+					}
 				}
 			}
 		}
-	}
 
-	&:focus,
-	&:hover {
-		+ label::before {
-		box-shadow: 0 0px 0px 1px darkred, 0 0px 12px darkred;
-		/* Since box shadows don't show up in high contrast mode,
-			we're adding a transparent outline (which does show up).  */
-		outline: 2px dotted transparent;
+		.radio-input--inactive,
+		.radio-label--inactive {
+			color: grey;
+			cursor: not-allowed;
 		}
-	}
-}
 
-.radio-input--inactive {
-	+ .radio-label--inactive {
-		color: grey;
-		cursor: not-allowed;
-
-		&::before {
+		.radio-input--inactive {
+			background-color: transparent;
 			border: 1px solid grey;
 		}
 	}
 
-	&:checked {
-		+ label::after {
-		background: grey;
+	&.before-pseudo-element {
+		.radio-wrapper {
+			margin: 0.5rem 0;
 		}
-	}
 
-	&:focus,
-	&:hover {
-		+ label::before {
-		box-shadow: 0 0px 0px 1px grey, 0 0px 12px grey;
+		.radio-input {
+			opacity: 0;
+
+			+ .radio-label {
+				cursor: pointer;
+				line-height: 22px;
+				position: relative;
+
+				&::before {
+					border: 1px solid darkred;
+					border-radius: 50%;
+					content: '';
+					height: 20px;
+					left: -24px;
+					position: absolute;
+					/* Fixed alignment in some browsers. */
+					top: 0;
+					width: 20px;
+				}
+
+				&::after {
+					border-radius: 50%;
+					content: '';
+					height: 12px;
+					left: -19px;
+					position: absolute;
+					top: 5px;
+					width: 12px;
+				}
+			}
+
+			&:checked {
+				+ label::after {
+					background: darkred;
+
+					/* The background is removed in Windows high-contrast mode, so we
+						need to set it explicitly here. `WindowText` is a system color
+						that should work with whatever high contrast mode the user
+						has set. */
+					@media screen and (-ms-high-contrast: active) {
+						& {
+						background: WindowText;
+						}
+					}
+				}
+			}
+
+			&:focus,
+			&:hover {
+				+ label::before {
+				box-shadow: 0 0px 0px 1px darkred, 0 0px 12px darkred;
+				/* Since box shadows don't show up in high contrast mode,
+					we're adding a transparent outline (which does show up).  */
+				outline: 2px dotted transparent;
+				}
+			}
+		}
+
+		.radio-input--inactive {
+			+ .radio-label--inactive {
+				color: grey;
+				cursor: not-allowed;
+
+				&::before {
+					border: 1px solid grey;
+				}
+			}
+
+			&:checked {
+				+ label::after {
+				background: grey;
+				}
+			}
+
+			&:focus,
+			&:hover {
+				+ label::before {
+				box-shadow: 0 0px 0px 1px grey, 0 0px 12px grey;
+				}
+			}
 		}
 	}
 }

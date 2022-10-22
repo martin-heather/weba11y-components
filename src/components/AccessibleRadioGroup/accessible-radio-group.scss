@@ -16,7 +16,7 @@ fieldset {
 		}
 
 		.radio-input {
-			// the appearance property allows for straightfoward overwriting of default semantic HTML styles and now has solid cross-browser support
+			// the appearance property allows for straightfoward overwriting of default semantic HTML styles
 			appearance: none;
 			border: 1px solid darkgreen;
 			border-radius: 50%;
@@ -36,7 +36,7 @@ fieldset {
 			&:checked {
 				background-color: darkgreen;
 				border: 4px solid #efedea;
-				box-shadow: 0 0px 0px 1px darkgreen, 0 0px 12px darkgreen;
+				box-shadow: 0 0px 0px 1px darkgreen, 0 0px 4px darkgreen;
 
 				@media screen and (-ms-high-contrast: active) {
 					& {
@@ -55,6 +55,13 @@ fieldset {
 		.radio-input--inactive {
 			background-color: transparent;
 			border: 1px solid grey;
+
+			&:hover,
+			&:focus {
+				background-color: #efedea;
+				border: 4px solid #efedea;
+				box-shadow: 0 0px 0px 1px grey, 0 0px 12px grey;
+			}
 		}
 	}
 
@@ -146,5 +153,7 @@ fieldset {
 		}
 	}
 }
+
+// ** The appearance property now enjoys solid cross-browser support: https://developer.mozilla.org/en-US/docs/Web/CSS/appearance#browser_compatibility
 
 // ** Credit for high-contrast style information and comments: https://www.a11ywithlindsey.com/blog/create-custom-keyboard-accessible-radio-buttons

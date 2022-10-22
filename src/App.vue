@@ -8,7 +8,8 @@
 		/>
 
 		<form :id="formId">
-			<p>Show me radio buttons styled with<br>
+			<p>
+				Show me radio buttons styled with<br>
 				<button
 					id="radios-appearance-property"
 					@click.prevent="radiosStyle = 'appearance-property'"

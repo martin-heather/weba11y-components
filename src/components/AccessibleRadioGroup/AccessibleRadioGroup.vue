@@ -59,7 +59,7 @@ export default {
 				'before-pseudo-element',
 				'default-HTML',
 			].indexOf(value) !== -1,
-			description: 'Demonstrates output of 2 different methods of styling radio buttons',
+			description: 'Demonstrates output of 3 different methods of styling radio buttons',
 		},
 	},
 };
